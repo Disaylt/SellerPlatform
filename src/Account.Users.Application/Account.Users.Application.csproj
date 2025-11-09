@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Features\Users\Helpers\Implementation\isadqpsn.0fi~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\libraries\Core.Application\Core.Application.csproj" />
+    <ProjectReference Include="..\Account.Users.Domain\Account.Users.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

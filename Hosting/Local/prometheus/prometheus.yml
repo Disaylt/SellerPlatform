@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'account_notifications_webapi'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['account.notifications.webapi:8081']
