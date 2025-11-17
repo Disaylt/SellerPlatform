@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\libraries\Core.Application\Core.Application.csproj" />
+    <ProjectReference Include="..\..\libraries\Core.Contracts.Grpc\Core.Contracts.Grpc.csproj" />
     <ProjectReference Include="..\Account.Users.Domain\Account.Users.Domain.csproj" />
   </ItemGroup>
 

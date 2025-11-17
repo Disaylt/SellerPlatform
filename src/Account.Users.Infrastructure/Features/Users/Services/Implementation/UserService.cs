@@ -1,4 +1,5 @@
-﻿using Account.Users.Application.Features.Users.Services.Abstraction;
+﻿using System.Net;
+using Account.Users.Application.Features.Users.Services.Abstraction;
 using Account.Users.Domain.Entities;
 using Account.Users.Infrastructure.Features.Users.Models;
 using Account.Users.Infrastructure.Features.Users.Utilities.Abstraction;
@@ -7,8 +8,28 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Account.Users.Infrastructure.Features.Users.Services.Implementation
 {
-    public class UserService(UserManager<IdentityUser> userManager, IUserMapper userMapper) : IUserService
+    public class UserService(UserManager<AppIdentityUser> userManager, IUserMapper userMapper) : IUserService
     {
+        public async Task<User> FindByLoginAsync(string login)
+        {
+            var user = await userManager.FindByNameAsync(login)
+                ?? throw new CoreRequestException()
+                    .SetStatusCode(HttpStatusCode.NotFound)
+                    .AddMessages("Пользователь с таким именем не найден.");
+
+            return userMapper.ToEntity(user);
+        }
+
+        public async Task<User> FindByEmailAsync(string email)
+        {
+            var user = await userManager.FindByEmailAsync(email)
+                ?? throw new CoreRequestException()
+                    .SetStatusCode(HttpStatusCode.NotFound)
+                    .AddMessages("Пользователь с такой почтой не найден.");
+
+            return userMapper.ToEntity(user);
+        }
+
         public async Task<User> CreateAsync(string login, string email, string password)
         {
             var identityUser = new AppIdentityUser
@@ -54,7 +75,7 @@ namespace Account.Users.Infrastructure.Features.Users.Services.Implementation
         private static CoreRequestException CreateUserNotFoundException()
         {
             return new CoreRequestException()
-                    .SetStatusCode(System.Net.HttpStatusCode.BadRequest)
+                    .SetStatusCode(HttpStatusCode.BadRequest)
                     .AddKeyMessages("Пользователь не найден.");
         }
     }

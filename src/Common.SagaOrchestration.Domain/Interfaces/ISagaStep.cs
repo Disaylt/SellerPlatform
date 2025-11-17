@@ -1,10 +1,9 @@
-﻿using Common.SagaOrchestration.Domain.Enums;
+﻿using Common.SagaOrchestration.Domain.Entities;
 
 namespace Common.SagaOrchestration.Domain.Interfaces;
 
 public interface ISagaStep
 {
-    string StepName { get; }
-    Task<SagaStepStatus> ExecuteAsync(ISagaContext context);
-    Task<bool> CompensateAsync(ISagaContext context);
+    public Task ExecuteAsync(SagaContext context);
+    public Task<bool> CompensateAsync(SagaContext context);
 }

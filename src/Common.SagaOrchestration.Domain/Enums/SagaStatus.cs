@@ -2,7 +2,8 @@
 public enum SagaStatus
 {
     Pending,
-    InProgress,
+    InCompleteProgress,
+    ImCompensatedProgress,
     Completed,
     Failed,
     Compensated

@@ -13,7 +13,7 @@ public static class RegistrationGrpcClientsExtensions
 {
     public static IServiceCollection AddGrpcClients(this IServiceCollection services)
     {
-        services.AddGrpcClient<ISessionExternalService>(x => x.ExternalServices.Account.Session.Grpc.Addresses);
+        services.AddGrpcClient<IIdentityExternalService>(x => x.ExternalServices.Account.Session.Grpc.Addresses);
         services.AddGrpcClient<IUserExternalService>(x => x.ExternalServices.Account.User.Grpc.Addresses);
 
         services.AddScoped<IGrpcChannelsFactory, GrpcChannelsFactory>();

@@ -1,5 +1,6 @@
 ﻿using Account.Users.Domain.Entities;
 using Account.Users.Domain.Events;
+using Account.Users.Infrastructure.Features.Sessions.Models;
 using Core.Abstraction.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -8,6 +9,8 @@ namespace Account.Users.Infrastructure.Features.Users.Models;
 public class AppIdentityUser : IdentityUser, INotificationsStore
 {
     public DateTime Created { get; set; } = DateTime.UtcNow;
+    public ICollection<SessionEntity> Sessions { get; private set; } = [];
+
     public AppIdentityUser()
     {
         Id = Guid.NewGuid().ToString();

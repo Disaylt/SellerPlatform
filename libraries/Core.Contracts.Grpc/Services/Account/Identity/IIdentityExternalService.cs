@@ -4,8 +4,8 @@ using Core.Contracts.Grpc.Models.Account.Identity;
 namespace Core.Contracts.Grpc.Services.Account.Identity;
 
 [ServiceContract]
-public interface ISessionExternalService
+public interface IIdentityExternalService
 {
     [OperationContract]
-    Task<AuthInfoResponseV1> CreateV1Async(NewSessionRequestV1 request);
+    Task<AuthInfoResponseV1> CreateAuthInfoV1(NewAuthInfoRequestV1 request);
 }

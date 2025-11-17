@@ -2,6 +2,8 @@
 
 public interface ISagaOrchestrator
 {
-    Task<TResult> ExecuteAsync<TResult>(ISagaContext context) where TResult : class;
-    Task CompensateAsync(ISagaContext context);
+    Task<string> RunAsync(object? data);
+    Task NextStepAsync();
+    
+    string GetNextStep(string? stepName);
 }
