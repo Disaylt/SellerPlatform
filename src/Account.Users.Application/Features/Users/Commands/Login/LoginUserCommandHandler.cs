@@ -23,6 +23,6 @@ public class LoginUserCommandHandler(
                 .AddMessages("Неверный пользователь или пароль.");
         }
 
-        var user = await userServiceФ
+        return new AuthInfoDto { AccessToken = "", RefreshToken = "" };
     }
 }

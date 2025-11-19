@@ -1,6 +1,5 @@
 ﻿using Core.Contracts.Config.SolutionConfig;
 using Core.Contracts.Grpc.Services.Account.Identity;
-using Core.Contracts.Grpc.Services.Account.Users;
 using Core.Implementation.GrpcClients.Abstraction;
 using Core.Implementation.GrpcClients.Implementation;
 using Core.Implementation.GrpcClients.Seed;
@@ -14,7 +13,6 @@ public static class RegistrationGrpcClientsExtensions
     public static IServiceCollection AddGrpcClients(this IServiceCollection services)
     {
         services.AddGrpcClient<IIdentityExternalService>(x => x.ExternalServices.Account.Session.Grpc.Addresses);
-        services.AddGrpcClient<IUserExternalService>(x => x.ExternalServices.Account.User.Grpc.Addresses);
 
         services.AddScoped<IGrpcChannelsFactory, GrpcChannelsFactory>();
         services.AddHttpClient(VariablesStore.BaseHttpClientName);
