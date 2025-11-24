@@ -17,15 +17,13 @@ public class JwtAccessClaimsService(IRolesClaimService rolesClaimService) : ICla
         Claim iat = new(JwtRegisteredClaimNames.Iat,
             EpochTime.GetIntDate(DateTime.UtcNow).ToString(CultureInfo.InvariantCulture),
             ClaimValueTypes.Integer64);
-        Claim sessionId = new(ClaimTypes.Sid, details.SessionId);
         Claim userId = new(ClaimTypes.NameIdentifier, details.UserId);
 
         List<Claim> claims =
         [
             jti,
             iat,
-            userId,
-            sessionId
+            userId
         ];
 
 

@@ -1,10 +1,9 @@
-﻿using Core.Abstraction.Interfaces;
-using Core.Application.Interfaces;
+﻿using Core.Application.Requests;
 using MediatR;
 
 namespace Account.Notifications.Application.Features.Notifications.Commands.MarkAsReadRange;
 
-public class MarkAsReadRangeCommand : IRequest<Unit>, ITransactionRequest
+public class MarkAsReadRangeCommand : BaseCommand<Unit>
 {
     public IEnumerable<string> Ids { get; set; } = [];
 }

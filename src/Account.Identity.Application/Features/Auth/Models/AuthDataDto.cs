@@ -1,4 +1,4 @@
-﻿namespace Account.Identity.Application.Features.Sessions.Models;
+﻿namespace Account.Identity.Application.Features.Auth.Models;
 
 public record AuthDataDto
 {

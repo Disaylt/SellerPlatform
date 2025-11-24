@@ -1,5 +1,6 @@
 ﻿using Account.Users.Application.Features.Users.Models;
 using Core.Application.Interfaces;
+using Core.Application.Requests;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Account.Users.Application.Features.Users.Commands.Register
 {
-    public class RegisterUserCommand : IRequest<AuthInfoDto>, ITransactionRequest
+    public class RegisterUserCommand : BaseCommand<AuthInfoDto>
     {
         public required string Login { get; set; }
         public required string Email { get; set; }

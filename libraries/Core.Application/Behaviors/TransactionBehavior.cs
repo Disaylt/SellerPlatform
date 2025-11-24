@@ -1,18 +1,14 @@
 ﻿using Core.Abstraction.Interfaces;
-using Core.Application.Interfaces;
+using Core.Application.Requests;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Application.Behaviors;
 
-public class TransactionBehavior<TRequest, TResponse>(ITransactionManager transactionManager,
+public class TransactionBehavior<TRequest, TResponse>(
+    ITransactionManager transactionManager,
     ILogger<TransactionBehavior<TRequest, TResponse>> logger)
-    : IPipelineBehavior<TRequest, TResponse> where TRequest : ITransactionRequest
+    : IPipelineBehavior<TRequest, TResponse> where TRequest : BaseCommand<TResponse>
 {
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {

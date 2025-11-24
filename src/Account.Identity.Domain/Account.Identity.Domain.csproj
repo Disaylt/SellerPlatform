@@ -10,4 +10,9 @@
     <ProjectReference Include="..\..\libraries\Core.Abstraction\Core.Abstraction.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>

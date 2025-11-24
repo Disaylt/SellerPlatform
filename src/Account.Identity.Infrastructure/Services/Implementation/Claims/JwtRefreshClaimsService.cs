@@ -20,8 +20,8 @@ public class JwtRefreshClaimsService : IClaimsService<RefreshAuthInfo>
         List<Claim> claims =
         [
             jti,
-                iat,
-                sessionId
+            iat,
+            sessionId
         ];
 
         return claims;

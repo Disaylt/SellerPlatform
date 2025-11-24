@@ -57,7 +57,6 @@ namespace Account.Identity.Infrastructure.Services.Implementation.Tokens
             AccessAuthInfo jwtAccessTokenDto = new()
             {
                 UserId = jwtSecurityToken.Claims.FindByType(ClaimTypes.NameIdentifier) ?? "",
-                SessionId = jwtSecurityToken.Claims.FindByType(ClaimTypes.Sid) ?? "",
                 Roles = ParseRoles(jwtSecurityToken.Claims),
                 Id = jwtSecurityToken.Claims.FindByType(JwtRegisteredClaimNames.Jti) ?? ""
             };

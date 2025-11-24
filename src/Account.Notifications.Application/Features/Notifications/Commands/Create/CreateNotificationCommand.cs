@@ -1,11 +1,9 @@
 ﻿using Account.Notifications.Application.Features.Notifications.Models;
-using Core.Abstraction.Interfaces;
-using Core.Application.Interfaces;
-using MediatR;
+using Core.Application.Requests;
 
 namespace Account.Notifications.Application.Features.Notifications.Commands.Create;
 
-public class CreateNotificationCommand : IRequest<NotificationDto>, ITransactionRequest
+public class CreateNotificationCommand : BaseCommand<NotificationDto>
 {
     public required string UserId { get; set; }
     public string? CorrelationId { get; set; }
