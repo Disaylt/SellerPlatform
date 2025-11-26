@@ -9,7 +9,7 @@ public class EfCoreUsersDbContext : IdentityDbContext<AppIdentityUser>
 {
     public EfCoreUsersDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
     {
-
+        
     }
 
     public DbSet<SessionEntity> Sessions { get; set; } = null!;
