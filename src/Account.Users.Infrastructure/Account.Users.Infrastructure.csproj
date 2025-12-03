@@ -20,6 +20,7 @@
     <ProjectReference Include="..\..\libraries\Core.Contracts.Config\Core.Contracts.Config.csproj" />
     <ProjectReference Include="..\..\libraries\Core.Contracts.Grpc\Core.Contracts.Grpc.csproj" />
     <ProjectReference Include="..\..\libraries\Core.Implementation.Config\Core.Implementation.Config.csproj" />
+    <ProjectReference Include="..\..\libraries\Core.Implementation.EntityFramework.Outbox\Core.Implementation.EntityFramework.Outbox.csproj" />
     <ProjectReference Include="..\Account.Users.Application\Account.Users.Application.csproj" />
   </ItemGroup>
 

@@ -11,7 +11,7 @@ public static class RegistrationServicesExtensions
     public static IServiceCollection AddEntityCreatedDomainEvent<TEntity>(this IServiceCollection serviceCollection) where TEntity : class
     {
         serviceCollection.AddSingleton<IDomainEventRecord, DomainCreatedEventRecord<TEntity>>();
-
+        
         return serviceCollection;
     }
 

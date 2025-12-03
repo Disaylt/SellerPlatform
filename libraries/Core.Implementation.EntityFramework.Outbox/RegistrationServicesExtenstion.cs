@@ -1,4 +1,5 @@
 ﻿using Core.Abstraction.Interfaces;
+using Core.Implementation.EntityFramework.Outbox.DbConfiguration;
 using Core.Implementation.EntityFramework.Outbox.Services.Abstract;
 using Core.Implementation.EntityFramework.Outbox.Services.Implementation;
 using Microsoft.EntityFrameworkCore;
@@ -20,5 +21,10 @@ public static class RegistrationServicesExtenstion
         services.AddScoped<IEventBus, OutboxEventBus>();
 
         return services;
+    }
+
+    public static void AddOutboxTable(this ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new OutboxDbConfiguration());
     }
 }

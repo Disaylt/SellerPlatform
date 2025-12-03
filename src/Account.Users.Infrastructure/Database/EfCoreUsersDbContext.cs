@@ -1,5 +1,6 @@
 ﻿using Account.Users.Infrastructure.Features.Sessions.Models;
 using Account.Users.Infrastructure.Features.Users.Models;
+using Core.Implementation.EntityFramework.Outbox;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,4 +15,10 @@ public class EfCoreUsersDbContext : IdentityDbContext<AppIdentityUser>
 
     public DbSet<SessionEntity> Sessions { get; set; } = null!;
 
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.AddOutboxTable();
+
+        base.OnModelCreating(builder);
+    }
 }
