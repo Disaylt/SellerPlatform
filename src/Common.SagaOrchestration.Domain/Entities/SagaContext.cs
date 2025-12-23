@@ -9,25 +9,19 @@ public class SagaContext
     public SagaStatus Status { get; private set; }
     public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; private set; } = DateTime.UtcNow;
-    public int MaxAtempates { get; private set; }
-    public int MaxAtempatesPerStep { get; private set; }
     public string StepState { get; private set; }
     public string Type { get; private set; }
 
-    public IList<SagaStepContext> Steps { get; set; } = [];
+    public IList<SagaStep> Steps { get; set; } = [];
 
 
     private ISagaStepMachine? _stepStateMachine;
 
     public SagaContext(
-        ISagaStepMachine sagaStateMachine,
-        int maxAtempates = 30,
-        int maxAtempatesPerStep = 10)
+        ISagaStepMachine sagaStateMachine)
     {
         Type = sagaStateMachine.Name;
         StepState = sagaStateMachine.FirstStep;
-        MaxAtempates = maxAtempates;
-        MaxAtempatesPerStep = maxAtempatesPerStep;
 
         _stepStateMachine = sagaStateMachine;
     }

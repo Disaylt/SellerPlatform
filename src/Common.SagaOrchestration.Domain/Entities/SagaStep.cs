@@ -1,6 +1,6 @@
 ﻿namespace Common.SagaOrchestration.Domain.Entities;
 
-public class SagaStepContext
+public class SagaStep
 {
     public string Name { get; private set; } 
     public string? RequestData { get; set; }
@@ -10,7 +10,12 @@ public class SagaStepContext
     public string SagaId { get; set; } = null!;
     public SagaContext Saga { get; set; } = null!;
 
-    public SagaStepContext(string name)
+    public SagaStep()
+    {
+        Name = null!;
+    }
+
+    public SagaStep(string name)
     {
         Name = name;
     }

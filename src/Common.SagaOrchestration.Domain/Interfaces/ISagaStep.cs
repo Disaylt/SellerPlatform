@@ -4,6 +4,7 @@ namespace Common.SagaOrchestration.Domain.Interfaces;
 
 public interface ISagaStep
 {
-    public Task ExecuteAsync(SagaContext context);
-    public Task<bool> CompensateAsync(SagaContext context);
+    int AtteptsQuantity { get; }
+    Task ExecuteAsync(SagaContext context);
+    Task<bool> CompensateAsync(SagaContext context);
 }

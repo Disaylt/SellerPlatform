@@ -6,6 +6,7 @@ namespace Common.SagaOrchestration.Domain.Interfaces;
 public abstract class SagaStep<TStep> : ISagaStep
 {
     public static string Name => typeof(TStep).FullName ?? typeof(TStep).Name;
+    public abstract int AtteptsQuantity { get; }
 
     public abstract Task ExecuteAsync(SagaContext context);
     public abstract Task<bool> CompensateAsync(SagaContext context);

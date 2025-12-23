@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Account\Users\RegisterUser\Models\" />
+    <Folder Include="Features\" />
     <Folder Include="Seed\" />
+    <Folder Include="Services\Abstraction\" />
     <Folder Include="Services\Implementation\" />
   </ItemGroup>
 
